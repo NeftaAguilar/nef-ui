@@ -6,9 +6,9 @@ const meta = {
   component: Button,
   argTypes: {
     variant: { control: 'select', options: ['solid', 'soft', 'outline', 'ghost', 'danger'] },
-    size: { control: 'radio', options: ['1', '2', '3'] },
+    size: { control: 'radio', options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] },
   },
-  args: { children: 'Schedule post', variant: 'solid', size: '2' },
+  args: { children: 'Schedule post', variant: 'solid', size: 'md' },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -41,14 +41,23 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-      <Button {...args} size="1">
-        Small
+      <Button {...args} size="xs">
+        Xs
       </Button>
-      <Button {...args} size="2">
-        Medium
+      <Button {...args} size="sm">
+        Sm
       </Button>
-      <Button {...args} size="3">
-        Large
+      <Button {...args} size="md">
+        Md
+      </Button>
+      <Button {...args} size="lg">
+        Lg
+      </Button>
+      <Button {...args} size="xl">
+        Xl
+      </Button>
+      <Button {...args} size="xxl">
+        Xxl
       </Button>
     </div>
   ),

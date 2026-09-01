@@ -31,22 +31,40 @@
 }
 
 /* Sizes */
-.size1 {
+.sizeXs {
+  height: 1.5rem;
+  padding-inline: var(--nef-space-1);
+  font-size: var(--nef-font-size-1);
+}
+
+.sizeSm {
   height: 1.75rem;
   padding-inline: var(--nef-space-2);
   font-size: var(--nef-font-size-1);
 }
 
-.size2 {
+.sizeMd {
   height: 2.25rem;
   padding-inline: var(--nef-space-3);
   font-size: var(--nef-font-size-2);
 }
 
-.size3 {
+.sizeLg {
   height: 2.75rem;
   padding-inline: var(--nef-space-4);
   font-size: var(--nef-font-size-3);
+}
+
+.sizeXl {
+  height: 3.25rem;
+  padding-inline: var(--nef-space-5);
+  font-size: var(--nef-font-size-4);
+}
+
+.sizeXxl {
+  height: 3.75rem;
+  padding-inline: var(--nef-space-6);
+  font-size: var(--nef-font-size-5);
 }
 
 /* Variants */

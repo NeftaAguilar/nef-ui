@@ -4,7 +4,7 @@ import { cn } from '../../lib/cn';
 import styles from './Button.module.css';
 
 export type ButtonVariant = 'solid' | 'soft' | 'outline' | 'ghost' | 'danger';
-export type ButtonSize = '1' | '2' | '3';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -21,15 +21,18 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const sizeClass: Record<ButtonSize, string | undefined> = {
-  '1': styles.size1,
-  '2': styles.size2,
-  '3': styles.size3,
+  xs: styles.sizeXs,
+  sm: styles.sizeSm,
+  md: styles.sizeMd,
+  lg: styles.sizeLg,
+  xl: styles.sizeXl,
+  xxl: styles.sizeXxl,
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     variant = 'solid',
-    size = '2',
+    size = 'md',
     asChild = false,
     loading = false,
     disabled,
