@@ -1,0 +1,40 @@
+import { Canvas, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+A modal built on Radix's Dialog Primitive: focus is trapped while it is open,
+returned to the trigger when it closes, Escape dismisses it, and the page behind
+it is inert.
+
+`title` is a **required prop**, not an optional slot. A dialog with no accessible
+name is announced as just "dialog", which tells a screen-reader user nothing about
+what just took over their screen. Making it required removes the possibility.
+
+<Primary />
+
+## Destructive confirmation
+
+Both buttons name the actual outcome — "Keep channel" and "Delete channel" rather
+than "Cancel" and "OK" — so the choice is readable without the surrounding
+sentence.
+
+<Canvas of={DialogStories.Destructive} />
+
+## Description
+
+`description` is optional but encouraged. When it is omitted the component renders
+an empty, hidden `Dialog.Description`, which is Radix's documented way of opting
+out of its development warning deliberately rather than leaving a warning in every
+consumer's console.
+
+<Canvas of={DialogStories.TitleOnly} />
+
+## Motion
+
+The overlay fades and the panel scales in from 96%, both on
+`--nef-duration-normal`, driven by the `data-state` attribute Radix sets. Under
+`prefers-reduced-motion` the durations collapse to 1ms, so the dialog still
+appears — it just stops moving.

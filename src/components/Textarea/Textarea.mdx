@@ -1,0 +1,32 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+A multi-line input for composer-shaped work, sharing TextField's label, hint and
+error wiring.
+
+<Primary />
+
+<Controls />
+
+## Character count
+
+Passing `maxLength` shows a live count and flags the field once it is exceeded.
+
+It deliberately does **not** truncate. The native `maxlength` attribute silently
+refuses keystrokes past the limit, which reads as a broken keyboard — and it
+mangles paste. Showing the overage and letting the user edit it down is the
+kinder behaviour, and it is what every real composer does.
+
+<Canvas of={TextareaStories.WithCharacterCount} />
+
+Over the limit, the count turns red and the control gains `aria-invalid`, so the
+state is not carried by colour alone.
+
+<Canvas of={TextareaStories.OverTheLimit} />
+
+The count is wrapped in `aria-live="polite"`, so it is announced as it changes
+without interrupting typing.

@@ -1,0 +1,45 @@
+import { Canvas, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Panels sharing one region, built on Radix's Tabs Primitive: arrow-key navigation,
+correct `aria-selected` and `aria-controls` wiring, and roving tabindex.
+
+Always give `Tabs.List` an `aria-label`. A tablist with no name is announced as
+just "tab list", which does not say what is being switched.
+
+<Primary />
+
+## The sliding indicator
+
+The underline slides and stretches between triggers rather than cutting to the new
+one.
+
+This is the one place in the library where JavaScript touches an animation, and
+the split is deliberate. `useTabIndicator` reads the active trigger's `offsetLeft`
+and `offsetWidth` and writes them onto the list as `--nef-tab-indicator-left` and
+`--nef-tab-indicator-width`. **The animation itself is still CSS** — a transition
+on `transform` and `width`. JavaScript measures; CSS moves.
+
+That keeps [ADR-0003](/docs) intact: no runtime animation dependency ships to
+consumers. It also means the indicator is composited on `transform` rather than
+animating `left`, and that it collapses to 1ms under `prefers-reduced-motion`.
+
+A `ResizeObserver` watches the list and each trigger, so the indicator stays put
+when the container resizes or a webfont finishes loading and reflows the labels.
+
+<Canvas of={TabsStories.UnevenLabels} />
+
+The indicator is `aria-hidden` — it is a picture of the selected state that Radix
+already communicates through `aria-selected`, and announcing it twice helps nobody.
+
+## Controlled and uncontrolled
+
+Both work. The List needs to know the current value to position the indicator, and
+it reads it from context that the Root maintains either way, so a controlled `Tabs`
+needs no extra wiring.
+
+<Canvas of={TabsStories.WithDisabledTab} />

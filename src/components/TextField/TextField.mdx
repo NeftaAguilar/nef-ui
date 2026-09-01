@@ -1,0 +1,35 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as TextFieldStories from './TextField.stories';
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+A single-line text input with its label, hint and error message wired together.
+
+`label` is required rather than optional. A bare input with a placeholder is the
+most common accessibility defect in a form, and making the label the one prop you
+cannot forget removes the failure mode from the API.
+
+<Primary />
+
+<Controls />
+
+## Hint and error
+
+The hint is tied to the input with `aria-describedby`, so a screen reader reads it
+as part of the field rather than as loose text nearby.
+
+<Canvas of={TextFieldStories.WithHint} />
+
+An error sets `aria-invalid`, is announced through `role="alert"`, and replaces
+the hint — stacking both under one control gives the user two things to read when
+they need one.
+
+<Canvas of={TextFieldStories.WithError} />
+
+## Ids
+
+Pass `id` to control it; otherwise one is generated with React's `useId`, which is
+stable across server and client rendering. The same `useFieldIds` hook backs
+[Textarea](?path=/docs/components-textarea--docs), so the two cannot drift apart.

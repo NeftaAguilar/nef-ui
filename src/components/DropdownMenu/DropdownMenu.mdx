@@ -1,0 +1,38 @@
+import { Canvas, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as DropdownMenuStories from './DropdownMenu.stories';
+
+<Meta of={DropdownMenuStories} />
+
+# DropdownMenu
+
+A menu of actions hanging off a trigger, built on Radix's DropdownMenu Primitive —
+roving tabindex, typeahead, and collision-aware positioning included.
+
+Use it for **actions**. For picking a value that stays selected, use
+[Select](?path=/docs/components-select--docs) instead: a menu item that silently
+holds state has no way to tell the user it did.
+
+<Primary />
+
+## Shortcuts
+
+`shortcut` renders right-aligned hint text and is marked `aria-hidden`.
+
+That is deliberate. A glyph like `⌘E` concatenates straight into the item's
+accessible name — a screen reader announces "Edit details⌘E" as one run-together
+word. To announce the binding properly, pass `aria-keyshortcuts` alongside it, in
+ARIA's normalised format (`Meta+E`), which the glyph itself cannot express.
+
+```tsx
+<DropdownMenu.Item shortcut="⌘E" aria-keyshortcuts="Meta+E">
+  Edit details
+</DropdownMenu.Item>
+```
+
+## Destructive items
+
+`destructive` restyles an item without changing its behaviour. It does not add a
+confirmation step — pair it with a [Dialog](?path=/docs/components-dialog--docs)
+when the action cannot be undone.
+
+<Canvas of={DropdownMenuStories.WithoutShortcuts} />

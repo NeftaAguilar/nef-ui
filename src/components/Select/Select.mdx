@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+A single-choice control built on Radix's Select Primitive, which gives it typeahead,
+arrow-key navigation and correct focus return for free — none of which a styled
+native `<select>` can offer.
+
+The Root, trigger and content are composed here so the common case is one
+component with `Select.Item` children. Radix's own parts remain available for
+layouts this shape does not cover.
+
+<Primary />
+
+<Controls />
+
+## Grouping
+
+<Canvas of={SelectStories.Grouped} />
+
+## Width
+
+The content sets `min-width: var(--radix-select-trigger-width)`, a custom property
+Radix measures for us, so the list is never narrower than the control that opened
+it. Its height is capped at `--radix-select-content-available-height` so a long
+list scrolls inside the viewport instead of running off the screen.
+
+## Errors
+
+An error sets `aria-invalid` on the **trigger** — the element the user actually
+focuses — and is announced through `role="alert"`.
+
+<Canvas of={SelectStories.WithError} />

@@ -1,0 +1,29 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as SwitchStories from './Switch.stories';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+An on/off control for a setting that applies immediately. If the change only takes
+effect after a Save button, use a checkbox instead — a switch that has not done
+anything yet is a lie.
+
+<Primary />
+
+<Controls />
+
+## Labelling
+
+Passing `label` renders the text beside the control and wires it with `htmlFor`,
+so the label is part of the click target. Without a label, pass `aria-label`
+yourself; the component will not invent a name for you.
+
+<Canvas of={SwitchStories.Unlabelled} />
+
+## Motion
+
+The thumb transitions on `transform` rather than `left`, so the movement is
+composited rather than triggering layout on every frame. The duration comes from
+`--nef-duration-normal`, so the switch stays on the same rhythm as everything
+else, and collapses to 1ms under `prefers-reduced-motion`.

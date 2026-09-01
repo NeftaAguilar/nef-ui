@@ -1,0 +1,49 @@
+import { Canvas, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as ToastStories from './Toast.stories';
+
+<Meta of={ToastStories} />
+
+# Toast
+
+A transient message about something that just happened, built on Radix's Toast
+Primitive — which handles the live region, the swipe-to-dismiss gesture, and
+pausing the dismiss timer while the window is unfocused or the pointer is over the
+toast.
+
+<Primary />
+
+## Setup
+
+Wrap once, near the root, and render the viewport there:
+
+```tsx
+<Toast.Provider swipeDirection="right">
+  {children}
+  <Toast.Viewport />
+</Toast.Provider>
+```
+
+## Actions need an alt text
+
+`action` takes an `altText` as well as a label, and Radix requires it. When a toast
+is announced, a screen-reader user cannot see a button that is about to disappear —
+`altText` describes the equivalent route to the same outcome ("Undo scheduling this
+post"), so the action is not lost with the toast.
+
+<Canvas of={ToastStories.WithAction} />
+
+If an action is important enough that losing it would matter, it does not belong in
+a toast at all. Toasts expire.
+
+## Tone
+
+`tone` adds a coloured leading edge. It is decoration on top of the words, never
+the only carrier of meaning — the title says what happened.
+
+<Canvas of={ToastStories.Failure} />
+
+## Motion
+
+The toast slides in from the right on `--nef-duration-slow` and follows the pointer
+during a swipe via the `--radix-toast-swipe-move-x` custom property Radix supplies.
+Under `prefers-reduced-motion` it appears without travelling.

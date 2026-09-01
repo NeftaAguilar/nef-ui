@@ -1,0 +1,48 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+Supplementary text for a control that already has a name.
+
+<Primary />
+
+<Controls />
+
+## A tooltip is never the label
+
+This is the rule the component is built around. Radix wires the tooltip as the
+trigger's **description**, not its name. So an icon-only button still needs its own
+`aria-label`:
+
+```tsx
+<Tooltip content="Adds this post to your queue">
+  <Button aria-label="Add to queue">+</Button>
+</Tooltip>
+```
+
+Without that label the button is announced as "button" and the tooltip never fires
+for a touch user, who has no hover to trigger it.
+
+<Canvas of={TooltipStories.OnAnIconButton} />
+
+## Provider
+
+Wrap the app once in `TooltipProvider`. Radix shares hover timing across every
+tooltip beneath it, so moving between adjacent controls does not replay the open
+delay each time.
+
+## Placement
+
+`side` is a preference, not a guarantee — Radix flips the tooltip when it would
+collide with the viewport edge, and the entry animation follows the side it
+actually landed on via the `data-side` attribute.
+
+<Canvas of={TooltipStories.Sides} />
+
+## Empty content
+
+`content` of `null` renders the trigger alone rather than an empty bubble, so a
+tooltip driven by optional data needs no conditional at the call site.
