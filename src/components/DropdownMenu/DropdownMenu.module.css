@@ -1,0 +1,43 @@
+.content {
+  composes: panel from '../../styles/surface.module.css';
+  composes: animated from '../../styles/surface.module.css';
+  z-index: 50;
+  min-width: 11rem;
+  padding: var(--nef-space-1);
+}
+
+.item {
+  composes: item from '../../styles/surface.module.css';
+}
+
+.destructive {
+  color: var(--nef-danger-text);
+}
+
+.destructive[data-highlighted] {
+  background-color: var(--nef-danger);
+  color: var(--nef-danger-fg);
+}
+
+.label {
+  padding: var(--nef-space-2) var(--nef-space-3);
+  font-size: var(--nef-font-size-1);
+  font-weight: var(--nef-font-weight-semibold);
+  color: var(--nef-fg-subtle);
+}
+
+.separator {
+  composes: separator from '../../styles/surface.module.css';
+}
+
+.shortcut {
+  margin-inline-start: auto;
+  padding-inline-start: var(--nef-space-4);
+  color: var(--nef-fg-subtle);
+  font-size: var(--nef-font-size-1);
+}
+
+.item[data-highlighted] .shortcut {
+  color: inherit;
+  opacity: 0.75;
+}

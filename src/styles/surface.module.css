@@ -1,0 +1,96 @@
+/*
+ * Shared Recipe fragments. CSS Modules `composes` lets each Component's own
+ * Recipe pull these in, so the overlay Components share one definition of what
+ * a floating panel and a menu item look like.
+ */
+.panel {
+  box-sizing: border-box;
+  background-color: var(--nef-panel);
+  color: var(--nef-fg);
+  border: 1px solid var(--nef-border);
+  border-radius: var(--nef-radius-3);
+  box-shadow: var(--nef-shadow-3);
+  font-family: var(--nef-font-sans);
+  font-size: var(--nef-font-size-2);
+}
+
+/* Radix sets data-state on open/close, which is all the enter/exit hook we need. */
+.animated[data-state='open'] {
+  animation: nef-scale-in var(--nef-duration-normal) var(--nef-ease-out);
+}
+
+.animated[data-state='closed'] {
+  animation: nef-scale-out var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--nef-space-2);
+  padding: var(--nef-space-2) var(--nef-space-3);
+  border-radius: var(--nef-radius-2);
+  color: var(--nef-fg);
+  line-height: var(--nef-line-height-tight);
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.item[data-highlighted] {
+  background-color: var(--nef-accent);
+  color: var(--nef-accent-fg);
+}
+
+.item[data-disabled] {
+  color: var(--nef-fg-subtle);
+  pointer-events: none;
+}
+
+.separator {
+  height: 1px;
+  margin: var(--nef-space-1) calc(var(--nef-space-1) * -1);
+  background-color: var(--nef-border);
+}
+
+/* The control surface shared by TextField, Textarea and Select's trigger. */
+.field {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--nef-panel);
+  color: var(--nef-fg);
+  border: 1px solid var(--nef-border);
+  border-radius: var(--nef-radius-2);
+  font-family: var(--nef-font-sans);
+  font-size: var(--nef-font-size-2);
+  line-height: var(--nef-line-height-normal);
+  transition:
+    border-color var(--nef-duration-fast) var(--nef-ease-out),
+    box-shadow var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.field::placeholder {
+  color: var(--nef-fg-subtle);
+}
+
+.field:focus-visible,
+.field[data-state='open'] {
+  outline: none;
+  border-color: var(--nef-accent);
+  box-shadow: 0 0 0 3px var(--nef-accent-surface);
+}
+
+.field:disabled,
+.field[data-disabled] {
+  background-color: var(--nef-surface);
+  color: var(--nef-fg-subtle);
+  cursor: not-allowed;
+}
+
+.field[data-invalid] {
+  border-color: var(--nef-danger);
+}
+
+.field[data-invalid]:focus-visible {
+  box-shadow: 0 0 0 3px var(--nef-danger-3);
+}

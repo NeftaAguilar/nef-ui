@@ -1,0 +1,39 @@
+.wrapper {
+  composes: wrapper from '../TextField/TextField.module.css';
+}
+
+.label {
+  composes: label from '../TextField/TextField.module.css';
+}
+
+.message {
+  composes: message from '../TextField/TextField.module.css';
+}
+
+.error {
+  composes: error from '../TextField/TextField.module.css';
+}
+
+.textarea {
+  composes: field from '../../styles/surface.module.css';
+  min-height: 6rem;
+  padding: var(--nef-space-2) var(--nef-space-3);
+  resize: vertical;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--nef-space-2);
+}
+
+.count {
+  composes: message from '../TextField/TextField.module.css';
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.countOver {
+  color: var(--nef-danger-text);
+  font-weight: var(--nef-font-weight-medium);
+}

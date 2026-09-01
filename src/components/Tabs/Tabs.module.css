@@ -1,0 +1,85 @@
+.list {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  gap: var(--nef-space-1);
+  border-bottom: 1px solid var(--nef-border);
+  font-family: var(--nef-font-sans);
+}
+
+.trigger {
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--nef-space-2) var(--nef-space-3);
+  border: none;
+  background: transparent;
+  color: var(--nef-fg-muted);
+  font-family: inherit;
+  font-size: var(--nef-font-size-2);
+  font-weight: var(--nef-font-weight-medium);
+  line-height: var(--nef-line-height-tight);
+  cursor: pointer;
+  transition: color var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.trigger:hover:not([data-disabled]) {
+  color: var(--nef-fg);
+}
+
+.trigger[data-state='active'] {
+  color: var(--nef-accent-text);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--nef-focus-ring);
+  outline-offset: -2px;
+  border-radius: var(--nef-radius-2);
+}
+
+.trigger[data-disabled] {
+  color: var(--nef-fg-subtle);
+  cursor: not-allowed;
+}
+
+/*
+ * The indicator slides between triggers. `useTabIndicator` measures the active
+ * trigger and writes these two custom properties; the transition does the rest,
+ * so the animation itself is CSS.
+ */
+.indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: var(--nef-tab-indicator-width, 0);
+  background-color: var(--nef-accent);
+  border-radius: var(--nef-radius-full);
+  transform: translateX(var(--nef-tab-indicator-left, 0));
+  transition:
+    transform var(--nef-duration-normal) var(--nef-ease-out),
+    width var(--nef-duration-normal) var(--nef-ease-out);
+  pointer-events: none;
+}
+
+/* Before the first measurement there is nothing meaningful to show. */
+.indicator[data-ready='false'] {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition-duration: 1ms;
+  }
+}
+
+.content {
+  padding-block-start: var(--nef-space-4);
+  font-family: var(--nef-font-sans);
+  color: var(--nef-fg);
+}
+
+.content:focus-visible {
+  outline: 2px solid var(--nef-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--nef-radius-2);
+}

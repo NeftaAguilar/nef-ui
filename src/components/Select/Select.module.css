@@ -1,0 +1,85 @@
+.wrapper {
+  composes: wrapper from '../TextField/TextField.module.css';
+}
+
+.label {
+  composes: label from '../TextField/TextField.module.css';
+}
+
+.error {
+  composes: error from '../TextField/TextField.module.css';
+}
+
+.trigger {
+  composes: field from '../../styles/surface.module.css';
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nef-space-2);
+  height: 2.25rem;
+  padding-inline: var(--nef-space-3);
+  cursor: pointer;
+  text-align: start;
+}
+
+.placeholder {
+  color: var(--nef-fg-subtle);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--nef-fg-muted);
+  transition: transform var(--nef-duration-normal) var(--nef-ease-out);
+}
+
+.trigger[data-state='open'] .icon {
+  transform: rotate(180deg);
+}
+
+.content {
+  composes: panel from '../../styles/surface.module.css';
+  composes: animated from '../../styles/surface.module.css';
+  overflow: hidden;
+  /* Radix measures the trigger for us; matching its width keeps the list aligned. */
+  min-width: var(--radix-select-trigger-width);
+  max-height: var(--radix-select-content-available-height);
+  z-index: 50;
+}
+
+.viewport {
+  padding: var(--nef-space-1);
+}
+
+.item {
+  composes: item from '../../styles/surface.module.css';
+  padding-inline-start: var(--nef-space-5);
+  position: relative;
+}
+
+.indicator {
+  position: absolute;
+  inset-inline-start: var(--nef-space-2);
+  display: inline-flex;
+  align-items: center;
+}
+
+.scrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  color: var(--nef-fg-muted);
+  background-color: var(--nef-panel);
+  cursor: default;
+}
+
+.label_group {
+  padding: var(--nef-space-2) var(--nef-space-3);
+  font-size: var(--nef-font-size-1);
+  font-weight: var(--nef-font-weight-semibold);
+  color: var(--nef-fg-subtle);
+}
+
+.separator {
+  composes: separator from '../../styles/surface.module.css';
+}

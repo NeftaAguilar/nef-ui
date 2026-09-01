@@ -1,0 +1,33 @@
+.content {
+  box-sizing: border-box;
+  z-index: 60;
+  max-width: 16rem;
+  padding: var(--nef-space-1) var(--nef-space-2);
+  border-radius: var(--nef-radius-2);
+  background-color: var(--nef-gray-12);
+  color: var(--nef-gray-1);
+  font-family: var(--nef-font-sans);
+  font-size: var(--nef-font-size-1);
+  line-height: var(--nef-line-height-normal);
+  box-shadow: var(--nef-shadow-2);
+  user-select: none;
+}
+
+/* Radix reports which side it landed on, so the entry slides from the trigger. */
+.content[data-state='delayed-open'][data-side='top'],
+.content[data-state='instant-open'][data-side='top'] {
+  animation: nef-slide-in var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.content[data-state='delayed-open'][data-side='bottom'],
+.content[data-state='instant-open'][data-side='bottom'] {
+  animation: nef-slide-in var(--nef-duration-fast) var(--nef-ease-out) reverse;
+}
+
+.content[data-state='closed'] {
+  animation: nef-fade-out var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.arrow {
+  fill: var(--nef-gray-12);
+}

@@ -1,0 +1,30 @@
+.wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nef-space-1);
+  font-family: var(--nef-font-sans);
+}
+
+.label {
+  font-size: var(--nef-font-size-2);
+  font-weight: var(--nef-font-weight-medium);
+  color: var(--nef-fg);
+}
+
+.input {
+  composes: field from '../../styles/surface.module.css';
+  height: 2.25rem;
+  padding-inline: var(--nef-space-3);
+}
+
+.message {
+  font-size: var(--nef-font-size-1);
+  line-height: var(--nef-line-height-normal);
+  color: var(--nef-fg-muted);
+}
+
+.error {
+  composes: message;
+  color: var(--nef-danger-text);
+}

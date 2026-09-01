@@ -1,0 +1,97 @@
+.viewport {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  inset-inline-end: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nef-space-2);
+  width: min(24rem, 100vw);
+  margin: 0;
+  padding: var(--nef-space-4);
+  list-style: none;
+  outline: none;
+}
+
+.root {
+  composes: panel from '../../styles/surface.module.css';
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--nef-space-1) var(--nef-space-3);
+  padding: var(--nef-space-3) var(--nef-space-4);
+  box-shadow: var(--nef-shadow-2);
+}
+
+.root[data-state='open'] {
+  animation: nef-toast-in var(--nef-duration-slow) var(--nef-ease-out);
+}
+
+.root[data-state='closed'] {
+  animation: nef-fade-out var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+/* Radix drives these while the user swipes the toast away. */
+.root[data-swipe='move'] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+
+.root[data-swipe='cancel'] {
+  transform: translateX(0);
+  transition: transform var(--nef-duration-normal) var(--nef-ease-out);
+}
+
+.root[data-swipe='end'] {
+  animation: nef-toast-out var(--nef-duration-normal) var(--nef-ease-out);
+}
+
+@keyframes nef-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(calc(100% + var(--nef-space-4)));
+  }
+}
+
+@keyframes nef-toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(calc(100% + var(--nef-space-4)));
+  }
+}
+
+.title {
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--nef-font-size-2);
+  font-weight: var(--nef-font-weight-semibold);
+}
+
+.description {
+  grid-column: 1;
+  margin: 0;
+  color: var(--nef-fg-muted);
+  line-height: var(--nef-line-height-normal);
+}
+
+.action {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: center;
+}
+
+.success {
+  border-inline-start: 3px solid var(--nef-accent);
+}
+
+.danger {
+  border-inline-start: 3px solid var(--nef-danger);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root[data-state='open'],
+  .root[data-state='closed'],
+  .root[data-swipe='end'] {
+    animation-duration: 1ms;
+  }
+}
