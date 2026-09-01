@@ -1,0 +1,145 @@
+/*
+ * Primitive Tokens: raw values in a scale. Components never reference these.
+ * Hand-authored — see CONTEXT.md "no color-scale generator".
+ */
+:root {
+  --nef-gray-1: #fcfcfd;
+  --nef-gray-2: #f9f9fb;
+  --nef-gray-3: #f0f0f3;
+  --nef-gray-4: #e8e8ec;
+  --nef-gray-5: #e0e1e6;
+  --nef-gray-6: #d9d9e0;
+  --nef-gray-7: #cdced6;
+  --nef-gray-8: #b9bbc6;
+  --nef-gray-9: #8b8d98;
+  --nef-gray-10: #80838d;
+  --nef-gray-11: #60646c;
+  --nef-gray-12: #1c2024;
+
+  --nef-accent-1: #fdfdfe;
+  --nef-accent-2: #f7f9ff;
+  --nef-accent-3: #edf2fe;
+  --nef-accent-4: #e1e9ff;
+  --nef-accent-5: #d2deff;
+  --nef-accent-6: #c1d0ff;
+  --nef-accent-7: #abbdf9;
+  --nef-accent-8: #8da4ef;
+  --nef-accent-9: #3e63dd;
+  --nef-accent-10: #3358d4;
+  --nef-accent-11: #3a5bc7;
+  --nef-accent-12: #1f2d5c;
+
+  --nef-danger-3: #ffefef;
+  --nef-danger-9: #e5484d;
+  --nef-danger-10: #dc3e42;
+  --nef-danger-11: #ce2c31;
+
+  --nef-space-1: 0.25rem;
+  --nef-space-2: 0.5rem;
+  --nef-space-3: 0.75rem;
+  --nef-space-4: 1rem;
+  --nef-space-5: 1.5rem;
+  --nef-space-6: 2rem;
+
+  --nef-radius-1: 0.25rem;
+  --nef-radius-2: 0.375rem;
+  --nef-radius-3: 0.5rem;
+  --nef-radius-4: 0.75rem;
+  --nef-radius-full: 9999px;
+
+  --nef-font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --nef-font-size-1: 0.75rem;
+  --nef-font-size-2: 0.875rem;
+  --nef-font-size-3: 1rem;
+  --nef-font-size-4: 1.125rem;
+  --nef-font-size-5: 1.25rem;
+  --nef-line-height-tight: 1.25;
+  --nef-line-height-normal: 1.5;
+  --nef-font-weight-medium: 500;
+  --nef-font-weight-semibold: 600;
+
+  --nef-shadow-1: 0 1px 2px rgb(0 0 0 / 0.06);
+  --nef-shadow-2: 0 4px 12px rgb(0 0 0 / 0.08);
+  --nef-shadow-3: 0 12px 32px -8px rgb(0 0 0 / 0.18);
+
+  /* Motion. Kept here so every Component animates on one shared rhythm. */
+  --nef-duration-fast: 120ms;
+  --nef-duration-normal: 180ms;
+  --nef-duration-slow: 260ms;
+  --nef-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --nef-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/*
+ * Semantic Tokens: the only tier Components reference, and the only tier a
+ * Consumer overrides to theme.
+ */
+:root,
+[data-theme='light'] {
+  --nef-bg: var(--nef-gray-1);
+  --nef-bg-subtle: var(--nef-gray-2);
+  --nef-panel: #ffffff;
+  --nef-surface: var(--nef-gray-3);
+  --nef-surface-hover: var(--nef-gray-4);
+  --nef-surface-active: var(--nef-gray-5);
+  --nef-fg: var(--nef-gray-12);
+  --nef-fg-muted: var(--nef-gray-11);
+  --nef-fg-subtle: var(--nef-gray-9);
+  --nef-border: var(--nef-gray-6);
+  --nef-border-strong: var(--nef-gray-8);
+  --nef-accent: var(--nef-accent-9);
+  --nef-accent-hover: var(--nef-accent-10);
+  --nef-accent-active: var(--nef-accent-11);
+  --nef-accent-fg: #ffffff;
+  --nef-accent-surface: var(--nef-accent-3);
+  --nef-accent-text: var(--nef-accent-11);
+  --nef-danger: var(--nef-danger-9);
+  --nef-danger-hover: var(--nef-danger-10);
+  --nef-danger-fg: #ffffff;
+  --nef-danger-text: var(--nef-danger-11);
+  --nef-focus-ring: var(--nef-accent-8);
+  --nef-overlay: rgb(0 0 0 / 0.35);
+}
+
+[data-theme='dark'] {
+  --nef-gray-1: #111113;
+  --nef-gray-2: #18191b;
+  --nef-gray-3: #212225;
+  --nef-gray-4: #272a2d;
+  --nef-gray-5: #2e3135;
+  --nef-gray-6: #363a3f;
+  --nef-gray-7: #43484e;
+  --nef-gray-8: #5a6169;
+  --nef-gray-9: #696e77;
+  --nef-gray-10: #777b84;
+  --nef-gray-11: #b0b4ba;
+  --nef-gray-12: #edeef0;
+
+  --nef-accent-1: #11131f;
+  --nef-accent-2: #141726;
+  --nef-accent-3: #182449;
+  --nef-accent-4: #1d2e62;
+  --nef-accent-5: #253974;
+  --nef-accent-6: #304384;
+  --nef-accent-7: #3a4f97;
+  --nef-accent-8: #435db1;
+  --nef-accent-9: #3e63dd;
+  --nef-accent-10: #5472e4;
+  --nef-accent-11: #9eb1ff;
+  --nef-accent-12: #d6e1ff;
+
+  --nef-danger-3: #3c181a;
+  --nef-danger-9: #e5484d;
+  --nef-danger-10: #ec5d5e;
+  --nef-danger-11: #ff9592;
+
+  --nef-panel: var(--nef-gray-2);
+  --nef-accent-text: var(--nef-accent-11);
+  --nef-focus-ring: var(--nef-accent-8);
+  --nef-overlay: rgb(0 0 0 / 0.6);
+
+  --nef-shadow-1: 0 1px 2px rgb(0 0 0 / 0.3);
+  --nef-shadow-2: 0 4px 12px rgb(0 0 0 / 0.4);
+  --nef-shadow-3: 0 12px 32px -8px rgb(0 0 0 / 0.6);
+}

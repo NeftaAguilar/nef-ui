@@ -1,0 +1,140 @@
+.root {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nef-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--nef-radius-2);
+  font-family: var(--nef-font-sans);
+  font-weight: var(--nef-font-weight-medium);
+  line-height: var(--nef-line-height-tight);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--nef-duration-fast) var(--nef-ease-out),
+    border-color var(--nef-duration-fast) var(--nef-ease-out),
+    color var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--nef-focus-ring);
+  outline-offset: 2px;
+}
+
+.root:disabled,
+.root[data-loading='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Sizes */
+.size1 {
+  height: 1.75rem;
+  padding-inline: var(--nef-space-2);
+  font-size: var(--nef-font-size-1);
+}
+
+.size2 {
+  height: 2.25rem;
+  padding-inline: var(--nef-space-3);
+  font-size: var(--nef-font-size-2);
+}
+
+.size3 {
+  height: 2.75rem;
+  padding-inline: var(--nef-space-4);
+  font-size: var(--nef-font-size-3);
+}
+
+/* Variants */
+.solid {
+  background-color: var(--nef-accent);
+  color: var(--nef-accent-fg);
+}
+
+.solid:hover:not(:disabled):not([data-loading='true']) {
+  background-color: var(--nef-accent-hover);
+}
+
+.solid:active:not(:disabled) {
+  background-color: var(--nef-accent-active);
+}
+
+.soft {
+  background-color: var(--nef-accent-surface);
+  color: var(--nef-accent-text);
+}
+
+.soft:hover:not(:disabled):not([data-loading='true']) {
+  background-color: var(--nef-accent-4);
+}
+
+.outline {
+  background-color: transparent;
+  border-color: var(--nef-border);
+  color: var(--nef-fg);
+}
+
+.outline:hover:not(:disabled):not([data-loading='true']) {
+  background-color: var(--nef-surface);
+  border-color: var(--nef-border-strong);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--nef-fg);
+}
+
+.ghost:hover:not(:disabled):not([data-loading='true']) {
+  background-color: var(--nef-surface);
+}
+
+.danger {
+  background-color: var(--nef-danger);
+  color: var(--nef-danger-fg);
+}
+
+.danger:hover:not(:disabled):not([data-loading='true']) {
+  background-color: var(--nef-danger-hover);
+}
+
+/*
+ * Loading: the label stays in flow so the button never changes width, and stays
+ * `opacity: 0` rather than `visibility: hidden` so it remains in the
+ * accessibility tree and keeps supplying the button's accessible name.
+ */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nef-space-2);
+  transition: opacity var(--nef-duration-fast) var(--nef-ease-out);
+}
+
+.root[data-loading='true'] .label {
+  opacity: 0;
+}
+
+.spinner {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: var(--nef-radius-full);
+  animation: nef-spin 600ms linear infinite;
+}
+
+@keyframes nef-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 1.6s;
+  }
+}

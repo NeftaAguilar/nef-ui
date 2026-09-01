@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The primary action trigger. Built without a Radix Primitive — a native `<button>`
+already has the semantics and keyboard behaviour — but it uses Radix's `Slot` so
+it can lend its styling to another element.
+
+<Primary />
+
+<Controls />
+
+## Variants
+
+`solid` for the single primary action in a view, `soft` and `outline` for
+secondary actions, `ghost` for low-emphasis controls in dense toolbars, and
+`danger` for destructive actions.
+
+<Canvas of={ButtonStories.Variants} />
+
+## Sizes
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Loading
+
+Setting `loading` disables the button and shows a spinner. The label stays in the
+document at `opacity: 0` rather than `visibility: hidden`, which keeps the button
+at a constant width **and** keeps it in the accessibility tree — a screen reader
+still announces "Schedule post", and `aria-busy` communicates the pending state.
+
+<Canvas of={ButtonStories.Loading} />
+
+## Rendering as another element
+
+`asChild` merges the Button's props and styling onto its child, so a link can look
+like a button without lying about its semantics.
+
+<Canvas of={ButtonStories.AsLink} />
+
+Note that with `asChild` the `loading` label is not dimmed: the slotted element
+owns its own content, and Button does not reach inside it.
