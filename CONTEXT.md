@@ -1,15 +1,15 @@
 # nef-design-system
 
-A small React component library, published to npm, built as portfolio evidence of
-front-end craft. Its vocabulary distinguishes the layers a component is assembled
-from, because keeping those layers apart is what lets the primitive library be
-swapped later.
+A small React component library, published to npm, that I'm building as portfolio
+evidence of front-end craft. Its vocabulary distinguishes the layers a component
+is assembled from, because keeping those layers apart is what lets me swap the
+primitive library later.
 
 ## Language
 
 **Primitive**:
 An unstyled, behavioural building block from Radix — the accessibility, keyboard
-handling and state machine, with no appearance. The layer we intend to replace
+handling and state machine, with no appearance. The layer I intend to replace
 with Base UI later.
 _Avoid_: headless component, base component
 
@@ -44,8 +44,8 @@ _Avoid_: client, user, host
 
 ## Non-goals
 
-Recorded because each was considered and deliberately excluded, and a reader will
-otherwise assume they were forgotten:
+Recorded because I considered and deliberately excluded each of these, and a
+reader would otherwise assume they were forgotten:
 
 - **No color-scale generator.** The palette is hand-authored.
 - **No migration abstraction layer** over Radix. See ADR-0001.
