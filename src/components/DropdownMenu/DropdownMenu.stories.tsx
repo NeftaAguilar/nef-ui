@@ -14,10 +14,10 @@ export const Playground: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button variant="outline">Channel actions</Button>
+        <Button variant="outline">Open menu</Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
-        <DropdownMenu.Label>Channel</DropdownMenu.Label>
+        <DropdownMenu.Label>Options</DropdownMenu.Label>
         <DropdownMenu.Item shortcut="⌘E" aria-keyshortcuts="Meta+E">
           Edit details
         </DropdownMenu.Item>
@@ -25,7 +25,7 @@ export const Playground: Story = {
           Reconnect
         </DropdownMenu.Item>
         <DropdownMenu.Separator />
-        <DropdownMenu.Item destructive>Remove channel</DropdownMenu.Item>
+        <DropdownMenu.Item destructive>Remove</DropdownMenu.Item>
       </DropdownMenu.Content>
     </DropdownMenu>
   ),
@@ -35,7 +35,7 @@ export const WithoutShortcuts: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button variant="outline">Sort</Button>
+        <Button variant="outline">Open menu</Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
         <DropdownMenu.Item>Newest first</DropdownMenu.Item>

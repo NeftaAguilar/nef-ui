@@ -8,7 +8,7 @@ function Example({ onDelete = () => {} }: { onDelete?: () => void }) {
   return (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
-        <Button>Channel actions</Button>
+        <Button>Open menu</Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content>
         <DropdownMenu.Label>Channel</DropdownMenu.Label>
@@ -28,7 +28,7 @@ describe('DropdownMenu', () => {
   it('opens from its trigger', async () => {
     render(<Example />);
 
-    await userEvent.click(screen.getByRole('button', { name: 'Channel actions' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open menu' }));
 
     expect(screen.getByRole('menu')).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Edit/ })).toBeInTheDocument();
@@ -47,7 +47,7 @@ describe('DropdownMenu', () => {
 
   it('keeps the shortcut glyph out of the accessible name', async () => {
     render(<Example />);
-    await userEvent.click(screen.getByRole('button', { name: 'Channel actions' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open menu' }));
 
     // Announced as "Edit", not "Edit\u2318E".
     const item = screen.getByRole('menuitem', { name: 'Edit' });

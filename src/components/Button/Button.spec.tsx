@@ -6,9 +6,9 @@ import { Button } from './Button';
 describe('Button', () => {
   it('renders its children and fires onClick', async () => {
     const onClick = vi.fn();
-    render(<Button onClick={onClick}>Schedule post</Button>);
+    render(<Button onClick={onClick}>Open</Button>);
 
-    await userEvent.click(screen.getByRole('button', { name: 'Schedule post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open' }));
 
     expect(onClick).toHaveBeenCalledOnce();
   });
@@ -17,11 +17,11 @@ describe('Button', () => {
     const onClick = vi.fn();
     render(
       <Button loading onClick={onClick}>
-        Schedule post
+        Open
       </Button>,
     );
 
-    const button = screen.getByRole('button', { name: 'Schedule post' });
+    const button = screen.getByRole('button', { name: 'Open' });
     expect(button).toBeDisabled();
     expect(button).toHaveAttribute('aria-busy', 'true');
 
@@ -30,19 +30,19 @@ describe('Button', () => {
   });
 
   it('keeps its accessible name while loading', () => {
-    render(<Button loading>Schedule post</Button>);
+    render(<Button loading>Open</Button>);
 
     // The spinner is decorative; the label must survive for screen readers.
-    expect(screen.getByRole('button', { name: 'Schedule post' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Open' })).toBeInTheDocument();
   });
 
   it('renders as the child element when asChild is set', () => {
     render(
       <Button asChild>
-        <a href="/queue">Go to queue</a>
+        <a href="/queue">Open link</a>
       </Button>,
     );
 
-    expect(screen.getByRole('link', { name: 'Go to queue' })).toHaveAttribute('href', '/queue');
+    expect(screen.getByRole('link', { name: 'Open link' })).toHaveAttribute('href', '/queue');
   });
 });

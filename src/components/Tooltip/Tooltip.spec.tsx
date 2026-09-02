@@ -7,8 +7,8 @@ import { Tooltip, TooltipProvider } from './Tooltip';
 function Example({ content }: { content?: string }) {
   return (
     <TooltipProvider>
-      <Tooltip content={content ?? 'Adds the post to your queue'} delayDuration={0}>
-        <Button aria-label="Add to queue">+</Button>
+      <Tooltip content={content ?? 'Adds this item'} delayDuration={0}>
+        <Button aria-label="Add">+</Button>
       </Tooltip>
     </TooltipProvider>
   );
@@ -20,7 +20,7 @@ describe('Tooltip', () => {
 
     await userEvent.tab();
 
-    expect(await screen.findByRole('tooltip')).toHaveTextContent('Adds the post to your queue');
+    expect(await screen.findByRole('tooltip')).toHaveTextContent('Adds this item');
   });
 
   it('leaves the trigger to supply its own accessible name', async () => {
@@ -29,19 +29,19 @@ describe('Tooltip', () => {
     await screen.findByRole('tooltip');
 
     // The tooltip describes the button; it must not become the button's name.
-    expect(screen.getByRole('button', { name: 'Add to queue' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Add' })).toBeInTheDocument();
   });
 
   it('renders the trigger untouched when there is no content', () => {
     render(
       <TooltipProvider>
         <Tooltip content={null}>
-          <Button aria-label="Add to queue">+</Button>
+          <Button aria-label="Add">+</Button>
         </Tooltip>
       </TooltipProvider>,
     );
 
-    expect(screen.getByRole('button', { name: 'Add to queue' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Add' })).toBeInTheDocument();
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
 });

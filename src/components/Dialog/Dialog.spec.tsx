@@ -8,10 +8,10 @@ function Example({ description }: { description?: string } = {}) {
   return (
     <Dialog>
       <Dialog.Trigger asChild>
-        <Button>Edit post</Button>
+        <Button>Open dialog</Button>
       </Dialog.Trigger>
       <Dialog.Content
-        title="Edit post"
+        title="Open dialog"
         description={description}
         footer={
           <Dialog.Close asChild>
@@ -29,15 +29,15 @@ describe('Dialog', () => {
   it('opens from its trigger and is named by its title', async () => {
     render(<Example />);
 
-    await userEvent.click(screen.getByRole('button', { name: 'Edit post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open dialog' }));
 
-    expect(screen.getByRole('dialog', { name: 'Edit post' })).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Open dialog' })).toBeInTheDocument();
   });
 
   it('is described by its description when one is given', async () => {
     render(<Example description="Changes apply to the queued post." />);
 
-    await userEvent.click(screen.getByRole('button', { name: 'Edit post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open dialog' }));
 
     expect(screen.getByRole('dialog')).toHaveAccessibleDescription(
       'Changes apply to the queued post.',
@@ -46,7 +46,7 @@ describe('Dialog', () => {
 
   it('closes on Escape', async () => {
     render(<Example />);
-    await userEvent.click(screen.getByRole('button', { name: 'Edit post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open dialog' }));
 
     await userEvent.keyboard('{Escape}');
 
@@ -55,11 +55,11 @@ describe('Dialog', () => {
 
   it('closes from the footer action and from the close button', async () => {
     render(<Example />);
-    await userEvent.click(screen.getByRole('button', { name: 'Edit post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open dialog' }));
     await userEvent.click(screen.getByRole('button', { name: 'Save' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
-    await userEvent.click(screen.getByRole('button', { name: 'Edit post' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Open dialog' }));
     await userEvent.click(screen.getByRole('button', { name: 'Close' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
