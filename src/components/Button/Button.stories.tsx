@@ -8,7 +8,7 @@ const meta = {
     variant: { control: 'select', options: ['solid', 'soft', 'outline', 'ghost', 'danger'] },
     size: { control: 'radio', options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] },
   },
-  args: { children: 'Schedule post', variant: 'solid', size: 'md' },
+  args: { children: 'Open', variant: 'solid', size: 'md' },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -67,9 +67,9 @@ export const Sizes: Story = {
 export const Loading: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-      <Button {...args}>Schedule post</Button>
+      <Button {...args}>Open</Button>
       <Button {...args} loading>
-        Schedule post
+        Open
       </Button>
     </div>
   ),
@@ -81,7 +81,7 @@ export const Disabled: Story = { args: { disabled: true } };
 export const AsLink: Story = {
   render: (args) => (
     <Button {...args} asChild>
-      <a href="#queue">Go to queue</a>
+      <a href="#">Open link</a>
     </Button>
   ),
 };

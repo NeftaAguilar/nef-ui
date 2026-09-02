@@ -92,5 +92,5 @@
 }
 
 .field[data-invalid]:focus-visible {
-  box-shadow: 0 0 0 3px var(--nef-danger-3);
+  box-shadow: 0 0 0 3px var(--nef-danger-100);
 }

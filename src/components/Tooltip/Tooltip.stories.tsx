@@ -6,8 +6,8 @@ const meta = {
   title: 'Components/Tooltip',
   component: Tooltip,
   args: {
-    content: 'Adds this post to your queue',
-    children: <Button variant="outline">Add to queue</Button>,
+    content: 'Adds this item',
+    children: <Button variant="outline">Add</Button>,
   },
   decorators: [
     (Story) => (
@@ -27,7 +27,7 @@ export const Playground: Story = {};
 export const OnAnIconButton: Story = {
   args: {
     children: (
-      <Button variant="ghost" aria-label="Add to queue">
+      <Button variant="ghost" aria-label="Add">
         +
       </Button>
     ),
