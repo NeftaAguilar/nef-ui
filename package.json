@@ -1,6 +1,6 @@
 {
   "name": "@neftaliaguilar/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A small, accessible React component library built on Radix Primitives.",
   "license": "MIT",
   "author": "Neftali Aguilar",
