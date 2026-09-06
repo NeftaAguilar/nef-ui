@@ -1,0 +1,25 @@
+.root {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  border-radius: var(--nef-radius-2);
+  background-color: var(--nef-surface-hover);
+  animation: nef-skeleton-pulse 1.5s var(--nef-ease-in-out) infinite;
+}
+
+@keyframes nef-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation-duration: 3s;
+  }
+}

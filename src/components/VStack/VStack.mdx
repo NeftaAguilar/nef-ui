@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as VStackStories from './VStack.stories';
+
+<Meta of={VStackStories} />
+
+# VStack
+
+A `display: flex; flex-direction: column` wrapper — nothing else. It ships no
+`gap`, alignment, padding or margin, on purpose: spacing between children
+differs by usage, so it stays out of the Recipe and lives in the consumer's own
+`className` or `style`, the same way [HStack](?path=/docs/layout-hstack--docs)
+does for the horizontal axis.
+
+<Primary />
+
+<Controls />
+
+## Without a gap
+
+Left alone, children sit flush against each other — there is no default spacing
+to override.
+
+<Canvas of={VStackStories.WithoutGap} />
+
+## Adding spacing
+
+Add `gap` (or margin/padding) the same way you would to any `div` — via
+`style` or your own class.
+
+<Canvas of={VStackStories.Playground} />

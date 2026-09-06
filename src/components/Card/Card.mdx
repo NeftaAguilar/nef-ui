@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+A static surface for grouping content. It composes the same `panel` fragment as
+Dialog, DropdownMenu, Select and Toast — background, border, radius and shadow —
+so a Card looks like it belongs to the same system without duplicating that
+recipe. Unlike those, it has no Radix Primitive behind it: it is a plain `div`
+that sits in normal flow.
+
+<Primary />
+
+<Controls />
+
+## Padding, not margin
+
+Card ships its own inner padding, because that is part of what makes a surface
+read as a card. It does **not** add margin — spacing between cards is a layout
+decision that varies per usage, so it is left to the consumer's own `className`
+or `style`, the same way [HStack](?path=/docs/layout-hstack--docs) and
+[VStack](?path=/docs/layout-vstack--docs) leave gap to the consumer.
+
+<Canvas of={CardStories.InAFlow} />

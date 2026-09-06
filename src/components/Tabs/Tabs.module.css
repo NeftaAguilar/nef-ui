@@ -2,7 +2,7 @@
   box-sizing: border-box;
   position: relative;
   display: flex;
-  gap: var(--nef-space-1);
+  gap: var(--nef-space-xs);
   border-bottom: 1px solid var(--nef-border);
   font-family: var(--nef-font-sans);
 }
@@ -10,7 +10,7 @@
 .trigger {
   box-sizing: border-box;
   position: relative;
-  padding: var(--nef-space-2) var(--nef-space-3);
+  padding: var(--nef-space-sm) var(--nef-space-md);
   border: none;
   background: transparent;
   color: var(--nef-fg-muted);
@@ -73,7 +73,7 @@
 }
 
 .content {
-  padding-block-start: var(--nef-space-4);
+  padding-block-start: var(--nef-space-lg);
   font-family: var(--nef-font-sans);
   color: var(--nef-fg);
 }

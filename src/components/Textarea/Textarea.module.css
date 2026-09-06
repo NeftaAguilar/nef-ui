@@ -17,14 +17,14 @@
 .textarea {
   composes: field from '../../styles/surface.module.css';
   min-height: 6rem;
-  padding: var(--nef-space-2) var(--nef-space-3);
+  padding: var(--nef-space-sm) var(--nef-space-md);
   resize: vertical;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
-  gap: var(--nef-space-2);
+  gap: var(--nef-space-sm);
 }
 
 .count {

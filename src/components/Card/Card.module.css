@@ -1,0 +1,4 @@
+.root {
+  composes: panel from '../../styles/surface.module.css';
+  padding: var(--nef-space-xl);
+}

@@ -27,8 +27,8 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: var(--nef-space-2);
-  padding: var(--nef-space-2) var(--nef-space-3);
+  gap: var(--nef-space-sm);
+  padding: var(--nef-space-sm) var(--nef-space-md);
   border-radius: var(--nef-radius-2);
   color: var(--nef-fg);
   line-height: var(--nef-line-height-tight);
@@ -49,7 +49,7 @@
 
 .separator {
   height: 1px;
-  margin: var(--nef-space-1) calc(var(--nef-space-1) * -1);
+  margin: var(--nef-space-xs) calc(var(--nef-space-xs) * -1);
   background-color: var(--nef-border);
 }
 
