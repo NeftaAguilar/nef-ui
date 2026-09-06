@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--nef-space-1);
+  gap: var(--nef-space-xs);
   font-family: var(--nef-font-sans);
 }
 
@@ -15,7 +15,7 @@
 .input {
   composes: field from '../../styles/surface.module.css';
   height: 2.25rem;
-  padding-inline: var(--nef-space-3);
+  padding-inline: var(--nef-space-md);
 }
 
 .message {

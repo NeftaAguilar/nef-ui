@@ -19,7 +19,7 @@ Primitive, or is written from scratch when no Primitive is needed.
 _Avoid_: widget, element, control
 
 **Primitive Token**:
-A raw, meaningless value in a scale — `--nef-gray-9`, `--nef-space-3`. Never
+A raw, meaningless value in a scale — `--nef-gray-9`, `--nef-space-md`. Never
 referenced by a Component.
 _Avoid_: base token, core token, global token
 

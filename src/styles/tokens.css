@@ -22,12 +22,12 @@
   --nef-danger-600: #dc3e42;
   --nef-danger-900: #ce2c31;
 
-  --nef-space-1: 0.25rem;
-  --nef-space-2: 0.5rem;
-  --nef-space-3: 0.75rem;
-  --nef-space-4: 1rem;
-  --nef-space-5: 1.5rem;
-  --nef-space-6: 2rem;
+  --nef-space-xs: 0.25rem;
+  --nef-space-sm: 0.5rem;
+  --nef-space-md: 0.75rem;
+  --nef-space-lg: 1rem;
+  --nef-space-xl: 1.5rem;
+  --nef-space-xxl: 2rem;
 
   --nef-radius-1: 0.25rem;
   --nef-radius-2: 0.375rem;

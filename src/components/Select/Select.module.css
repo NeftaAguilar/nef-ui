@@ -15,9 +15,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--nef-space-2);
+  gap: var(--nef-space-sm);
   height: 2.25rem;
-  padding-inline: var(--nef-space-3);
+  padding-inline: var(--nef-space-md);
   cursor: pointer;
   text-align: start;
 }
@@ -47,18 +47,18 @@
 }
 
 .viewport {
-  padding: var(--nef-space-1);
+  padding: var(--nef-space-xs);
 }
 
 .item {
   composes: item from '../../styles/surface.module.css';
-  padding-inline-start: var(--nef-space-5);
+  padding-inline-start: var(--nef-space-xl);
   position: relative;
 }
 
 .indicator {
   position: absolute;
-  inset-inline-start: var(--nef-space-2);
+  inset-inline-start: var(--nef-space-sm);
   display: inline-flex;
   align-items: center;
 }
@@ -74,7 +74,7 @@
 }
 
 .label_group {
-  padding: var(--nef-space-2) var(--nef-space-3);
+  padding: var(--nef-space-sm) var(--nef-space-md);
   font-size: var(--nef-font-size-1);
   font-weight: var(--nef-font-weight-semibold);
   color: var(--nef-fg-subtle);

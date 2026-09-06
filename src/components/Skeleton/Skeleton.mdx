@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as SkeletonStories from './Skeleton.stories';
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+A placeholder block shown in place of content that hasn't loaded yet. It has no
+Radix Primitive behind it — no keyboard behaviour or state machine applies to a
+box that isn't interactive.
+
+<Primary />
+
+<Controls />
+
+## Sizing
+
+Skeleton has no shape props. Set width, height and radius the same way you
+would on any `div` — via `style` or your own class — so it can stand in for a
+line of text, an avatar, or anything else.
+
+<Canvas of={SkeletonStories.Shapes} />
+
+## Composing a placeholder
+
+<Canvas of={SkeletonStories.CardPlaceholder} />
+
+## Accessibility
+
+It renders with `aria-hidden="true"` by default: a pulsing grey box carries no
+information a screen reader should announce. The loading state itself should be
+communicated by the surrounding UI (an `aria-busy` region, a status message) —
+Skeleton only supplies the visual.
+
+Motion respects `prefers-reduced-motion`: the pulse slows from 1.5s to 3s rather
+than stopping outright, the same way Button's spinner does — it keeps
+communicating "still loading" without the more aggressive animation.

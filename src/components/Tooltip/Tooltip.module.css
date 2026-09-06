@@ -2,7 +2,7 @@
   box-sizing: border-box;
   z-index: 60;
   max-width: 16rem;
-  padding: var(--nef-space-1) var(--nef-space-2);
+  padding: var(--nef-space-xs) var(--nef-space-sm);
   border-radius: var(--nef-radius-2);
   background-color: var(--nef-gray-900);
   color: var(--nef-gray-100);

@@ -4,7 +4,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--nef-space-2);
+  gap: var(--nef-space-sm);
   border: 1px solid transparent;
   border-radius: var(--nef-radius-2);
   font-family: var(--nef-font-sans);
@@ -33,37 +33,37 @@
 /* Sizes */
 .sizeXs {
   height: 1.5rem;
-  padding-inline: var(--nef-space-1);
+  padding-inline: var(--nef-space-xs);
   font-size: var(--nef-font-size-1);
 }
 
 .sizeSm {
   height: 1.75rem;
-  padding-inline: var(--nef-space-2);
+  padding-inline: var(--nef-space-sm);
   font-size: var(--nef-font-size-1);
 }
 
 .sizeMd {
   height: 2.25rem;
-  padding-inline: var(--nef-space-3);
+  padding-inline: var(--nef-space-md);
   font-size: var(--nef-font-size-2);
 }
 
 .sizeLg {
   height: 2.75rem;
-  padding-inline: var(--nef-space-4);
+  padding-inline: var(--nef-space-lg);
   font-size: var(--nef-font-size-3);
 }
 
 .sizeXl {
   height: 3.25rem;
-  padding-inline: var(--nef-space-5);
+  padding-inline: var(--nef-space-xl);
   font-size: var(--nef-font-size-4);
 }
 
 .sizeXxl {
   height: 3.75rem;
-  padding-inline: var(--nef-space-6);
+  padding-inline: var(--nef-space-xxl);
   font-size: var(--nef-font-size-5);
 }
 
@@ -127,7 +127,7 @@
 .label {
   display: inline-flex;
   align-items: center;
-  gap: var(--nef-space-2);
+  gap: var(--nef-space-sm);
   transition: opacity var(--nef-duration-fast) var(--nef-ease-out);
 }
 

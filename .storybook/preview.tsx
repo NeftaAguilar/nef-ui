@@ -11,7 +11,7 @@ const withTheme: Decorator = (Story, context) => {
         background: 'var(--nef-bg)',
         color: 'var(--nef-fg)',
         fontFamily: 'var(--nef-font-sans)',
-        padding: 'var(--nef-space-6)',
+        padding: 'var(--nef-space-xxl)',
         minHeight: '100vh',
       }}
     >
