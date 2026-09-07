@@ -1,12 +1,13 @@
-name: Chromatic
+name: Visual Regression Test
 
 on:
   push:
     branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
-  chromatic:
+  visual-regression-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Publish to Chromatic
+      - name: Visual Regression Test
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
