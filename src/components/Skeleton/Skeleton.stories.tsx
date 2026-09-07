@@ -27,7 +27,14 @@ export const Shapes: Story = {
 /** A composed placeholder for a card that hasn't loaded yet. */
 export const CardPlaceholder: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--nef-space-sm)', width: '16rem' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--nef-space-sm)',
+        width: '16rem',
+      }}
+    >
       <Skeleton style={{ width: '3rem', height: '3rem', borderRadius: 'var(--nef-radius-full)' }} />
       <Skeleton style={{ width: '80%' }} />
       <Skeleton style={{ width: '60%' }} />

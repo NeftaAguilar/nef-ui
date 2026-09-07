@@ -13,8 +13,8 @@ export const Playground: Story = {
   render: (props) => (
     <Card {...props} style={{ maxWidth: '20rem' }}>
       <p style={{ margin: 0 }}>
-        A Card is a static surface — no Radix primitive behind it, just the same
-        panel used by Dialog, DropdownMenu and Select.
+        A Card is a static surface — no Radix primitive behind it, just the same panel used by
+        Dialog, DropdownMenu and Select.
       </p>
     </Card>
   ),

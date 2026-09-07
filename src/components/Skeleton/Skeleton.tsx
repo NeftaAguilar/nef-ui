@@ -13,7 +13,5 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(function Skele
   { className, ...props },
   ref,
 ) {
-  return (
-    <div ref={ref} aria-hidden="true" className={cn(styles.root, className)} {...props} />
-  );
+  return <div ref={ref} aria-hidden="true" className={cn(styles.root, className)} {...props} />;
 });
