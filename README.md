@@ -78,7 +78,7 @@ The full token list is in [`src/styles/tokens.css`](./src/styles/tokens.css).
 
 ```sh
 pnpm install
-pnpm dev              # Storybook on :6006
+pnpm storybook        # Storybook on :6006
 pnpm test             # Vitest
 pnpm lint             # ESLint
 pnpm types:check      # tsc --noEmit
@@ -91,6 +91,20 @@ To try the package in another app before publishing:
 pnpm build && pnpm link --global
 # in the consuming app
 pnpm link --global @neftaliaguilar/ui
+```
+
+### CI
+
+Every push to `main` and every pull request against it runs a
+[Visual Regression Test](./.github/workflows/chromatic.yml) via
+[Chromatic](https://www.chromatic.com/), diffing Storybook snapshots
+(`onlyChanged: true`) against the baseline. It only triggers on `.tsx`
+changes, so config or doc-only commits don't burn a Chromatic build. The step
+is skipped, not failed, on pull requests from forks, since those don't have
+access to the `CHROMATIC_PROJECT_TOKEN` secret. Run it locally with:
+
+```sh
+pnpm chromatic
 ```
 
 ## Design decisions
