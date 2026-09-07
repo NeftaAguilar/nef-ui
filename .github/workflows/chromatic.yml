@@ -3,8 +3,12 @@ name: Visual Regression Test
 on:
   push:
     branches: [main]
+    paths:
+      - '**/*.tsx'
   pull_request:
     branches: [main]
+    paths:
+      - '**/*.tsx'
 
 jobs:
   visual-regression-test:
