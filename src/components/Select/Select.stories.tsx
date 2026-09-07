@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { screen, userEvent, within } from 'storybook/test';
 import { Select } from './Select';
 
 const meta = {
@@ -19,15 +20,26 @@ const channels = (
   </>
 );
 
-export const Playground: Story = { args: { children: channels } };
+async function openSelect({ canvasElement }: { canvasElement: HTMLElement }) {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('combobox', { name: 'Channel' }));
+  await screen.findByRole('listbox');
+}
 
-export const WithValue: Story = { args: { children: channels, defaultValue: 'linkedin' } };
+export const Playground: Story = { args: { children: channels }, play: openSelect };
+
+export const WithValue: Story = {
+  args: { children: channels, defaultValue: 'linkedin' },
+  play: openSelect,
+};
 
 export const WithError: Story = {
   args: { children: channels, error: 'Pick a channel to continue.' },
+  play: openSelect,
 };
 
 export const Grouped: Story = {
+  play: openSelect,
   args: {
     children: (
       <>

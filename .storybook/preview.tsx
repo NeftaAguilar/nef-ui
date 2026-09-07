@@ -39,6 +39,9 @@ const preview: Preview = {
   parameters: {
     controls: { matchers: { color: /(background|color)$/i } },
     a11y: { test: 'error' },
+    // Every component here animates in with CSS. Without this, Chromatic pauses
+    // at the animation's first frame, snapshotting popovers/dialogs mid-fade.
+    chromatic: { pauseAnimationAtEnd: true },
   },
 };
 

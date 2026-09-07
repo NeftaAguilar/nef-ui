@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { screen, userEvent, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { Toast } from './Toast';
 
@@ -29,8 +30,17 @@ function Demo({ tone, ...toast }: Partial<React.ComponentProps<typeof Toast>>) {
   );
 }
 
+// The toast is closed until the demo button is clicked, so every story opens
+// it itself and waits for its title to confirm the toast actually rendered.
+async function openToast({ canvasElement }: { canvasElement: HTMLElement }, title: string) {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button', { name: 'Show toast' }));
+  await screen.findByText(title);
+}
+
 export const Playground: Story = {
   render: () => <Demo description="It will publish at 09:00 tomorrow." tone="success" />,
+  play: (context) => openToast(context, 'Post scheduled'),
 };
 
 export const WithAction: Story = {
@@ -41,6 +51,7 @@ export const WithAction: Story = {
       action={{ label: 'Undo', altText: 'Undo scheduling this post' }}
     />
   ),
+  play: (context) => openToast(context, 'Post scheduled'),
 };
 
 export const Failure: Story = {
@@ -52,6 +63,10 @@ export const Failure: Story = {
       action={{ label: 'Retry', altText: 'Retry publishing this post' }}
     />
   ),
+  play: (context) => openToast(context, 'Could not publish'),
 };
 
-export const TitleOnly: Story = { render: () => <Demo title="Draft saved" /> };
+export const TitleOnly: Story = {
+  render: () => <Demo title="Draft saved" />,
+  play: (context) => openToast(context, 'Draft saved'),
+};
