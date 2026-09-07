@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { screen, userEvent, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { DropdownMenu } from './DropdownMenu';
 
@@ -10,7 +11,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+async function openMenu({ canvasElement }: { canvasElement: HTMLElement }) {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button', { name: 'Open menu' }));
+  await screen.findByRole('menu');
+}
+
 export const Playground: Story = {
+  play: openMenu,
   render: () => (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>
@@ -32,6 +40,7 @@ export const Playground: Story = {
 };
 
 export const WithoutShortcuts: Story = {
+  play: openMenu,
   render: () => (
     <DropdownMenu>
       <DropdownMenu.Trigger asChild>

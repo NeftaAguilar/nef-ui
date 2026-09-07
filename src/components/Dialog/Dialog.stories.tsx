@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { screen, userEvent, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { TextField } from '../TextField/TextField';
 import { Dialog } from './Dialog';
@@ -13,7 +14,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+async function openDialog({ canvasElement }: { canvasElement: HTMLElement }) {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button', { name: 'Open dialog' }));
+  await screen.findByRole('dialog');
+}
+
 export const Playground: Story = {
+  play: openDialog,
   render: () => (
     <Dialog>
       <Dialog.Trigger asChild>
@@ -40,6 +48,7 @@ export const Playground: Story = {
 };
 
 export const Destructive: Story = {
+  play: openDialog,
   render: () => (
     <Dialog>
       <Dialog.Trigger asChild>
@@ -65,6 +74,7 @@ export const Destructive: Story = {
 
 /** Without a description, Radix's warning is opted out of explicitly. */
 export const TitleOnly: Story = {
+  play: openDialog,
   render: () => (
     <Dialog>
       <Dialog.Trigger asChild>
