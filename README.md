@@ -59,10 +59,10 @@ The full token list is in [`src/styles/tokens.css`](./src/styles/tokens.css).
 
 | Component      | Primitive            | Notes                                           |
 | -------------- | -------------------- | ----------------------------------------------- |
-| `Card`         | —                     | Static surface; own padding, no margin          |
-| `HStack`       | —                     | Flex row only; no gap/margin/padding props      |
-| `VStack`       | —                     | Flex column only; no gap/margin/padding props   |
-| `Skeleton`     | —                     | Loading placeholder; sized via `style`          |
+| `Card`         | —                    | Static surface; own padding, no margin          |
+| `HStack`       | —                    | Flex row only; no gap/margin/padding props      |
+| `VStack`       | —                    | Flex column only; no gap/margin/padding props   |
+| `Skeleton`     | —                    | Loading placeholder; sized via `style`          |
 | `Button`       | Slot (for `asChild`) | 5 variants, 3 sizes, width-stable loading       |
 | `TextField`    | Label                | Label required; hint + error wiring             |
 | `Textarea`     | Label                | Live character count that never truncates       |
