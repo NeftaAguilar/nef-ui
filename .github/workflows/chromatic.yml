@@ -28,6 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Visual Regression Test
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
