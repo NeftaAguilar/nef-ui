@@ -4,6 +4,10 @@
   "description": "A small, accessible React component library built on Radix Primitives.",
   "license": "MIT",
   "author": "Neftali Aguilar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeftaAguilar/nef-ui.git"
+  },
   "type": "module",
   "packageManager": "pnpm@11.24.0",
   "sideEffects": [
