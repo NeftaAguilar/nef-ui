@@ -66,7 +66,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button {...shared} disabled={disabled || loading}>
       {spinner}
-      <span className={styles.label}>{children}</span>
+      <span className={styles.label}>{children}</span> +
     </button>
   );
 });
